@@ -1,0 +1,23 @@
+{% extends 'support/base.html' %}
+
+{% block content %}
+    <center>
+        <br><br>
+        <h1 style="padding: 10px">فرم افزودن قطعه</h1>
+
+        {% if submitted == True %}
+        <p>قطعه تعریف شده با موفقیت ثبت گردید</p>
+        <a href="/parts/add/" >بازگشت</a>
+
+        {% else %}
+
+        <form action="" method="POST" style="padding: 100px">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="ثبت قطعه" class="btn btn-success">
+        </form>
+
+        {% endif %}
+    </center>
+
+{% endblock %}

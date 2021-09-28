@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--load internationalization-->
+{% load i18n %}
+<!--access to the static files such as images,css,...-->
+{% load static %}
+
+<!--adjust the page for farsi language-->
+<html lang="fa" dir="rtl">
+<head>
+    <!--    make the web page responsive for all device screens-->
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>PARSIAN TECHNOLOGY GROUP</title>
+    <!-- Bootstrap RTL CSS and javascript libraries import-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
+          integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--import the css file-->
+    <link rel="stylesheet" href="{% static 'support/css/index.css' %}">
+    <!--import fonts from google-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo">
+
+</head>
+<body>
+<div id="header">
+<div class="container">
+    <div class="content-header">
+        <h1>پرتال سازمانی پارسیان تکنولوژی</h1>
+        <p>نسخه آزمایشی 1.0</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm">
+            <div class="content-body">
+                <div class="card" style="width:200px">
+                    <img class="card-img-top"
+                         src="https://www.seekpng.com/png/detail/851-8517093_it-support-company-technical-support-icon.png"
+                         alt="Card image" style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">واحد پشتیبانی</h4>
+                        <p class="card-text"></p>
+                        <a href="/parts/list/" class="btn btn-primary">ورود</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="content-body">
+                <div class="card" style="width:200px">
+                    <img class="card-img-top"
+                         src="https://www.seekpng.com/png/detail/851-8517093_it-support-company-technical-support-icon.png"
+                         alt="Card image" style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">واحد انبار</h4>
+                        <p class="card-text"></p>
+                        <a href="#" class="btn btn-primary">ورود</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="content-body">
+                <div class="card" style="width:200px">
+                    <img class="card-img-top"
+                         src="https://www.seekpng.com/png/detail/851-8517093_it-support-company-technical-support-icon.png"
+                         alt="Card image" style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">واحد کیفیت</h4>
+                        <p class="card-text"></p>
+                        <a href="#" class="btn btn-primary">ورود</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="content-body">
+                <div class="card" style="width:200px">
+                    <img class="card-img-top"
+                         src="https://www.seekpng.com/png/detail/851-8517093_it-support-company-technical-support-icon.png"
+                         alt="Card image" style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">واحد فروش</h4>
+                        <p class="card-text"></p>
+                        <a href="#" class="btn btn-primary">ورود</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="content-body">
+                <div class="card" style="width:200px">
+                    <img class="card-img-top"
+                         src="https://www.seekpng.com/png/detail/851-8517093_it-support-company-technical-support-icon.png"
+                         alt="Card image" style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">واحد مالی</h4>
+                        <p class="card-text"></p>
+                        <a href="#" class="btn btn-primary">ورود</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!--    <img src="{% static 'support/images/img_index.jpg' %}" alt="Distillation Shot" style="width:100%;">-->
+
+
+</div>
+
+</div>
+</body>
+</html>

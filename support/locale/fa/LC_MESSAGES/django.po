@@ -1,0 +1,131 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-11 01:32+0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\apps.py:8
+msgid "support"
+msgstr "واحد پشتیبانی و تعمیرات"
+
+#: .\models.py:6
+msgid "customer_company_name"
+msgstr "نام شرکت مشتری"
+
+#: .\models.py:9
+msgid "Customer"
+msgstr " مشتری "
+
+#: .\models.py:10
+msgid "Customers"
+msgstr " مشتری "
+
+#: .\models.py:17
+msgid "part_name"
+msgstr "نام قطعه"
+
+#: .\models.py:20
+msgid "Raw Material"
+msgstr "مواد اولیه"
+
+msgid "Raw Materials"
+msgstr "مواد اولیه"
+
+#: .\models.py:28
+msgid "product model"
+msgstr "نام محصول"
+
+#: .\models.py:29
+msgid "Product Type"
+msgstr " مدل محصول "
+
+#: .\models.py:33
+msgid "product list"
+msgstr " لیست محصولات "
+
+#: .\models.py:34
+msgid "products list"
+msgstr "لیست محصولات"
+
+#: .\models.py:42
+msgid "contact_name"
+msgstr "نام مخاطب"
+
+#: .\models.py:43
+msgid "contact_position"
+msgstr "سمت سازمانی مخاطب"
+
+#: .\models.py:44
+msgid "contact_mobile"
+msgstr "شماره موبایل مخاطب"
+
+#: .\models.py:47
+msgid "Contact"
+msgstr " اطلاعات تماس "
+
+#: .\models.py:48
+msgid "Contacts"
+msgstr " اطلاعات تماس "
+
+#: .\models.py:68
+msgid "product_name"
+msgstr "نام محصول"
+
+#: .\models.py:69
+msgid "product_model"
+msgstr "مدل محصول"
+
+#: .\models.py:70 .\models.py:83
+msgid "product_serial"
+msgstr "سریال محصول"
+
+#: .\models.py:74
+msgid "Product"
+msgstr " محصول خریداری شده "
+
+#: .\models.py:75
+msgid "Products"
+msgstr " محصول خریداری شده "
+
+#: .\models.py:84
+msgid "service_date"
+msgstr "تاریخ سرویس"
+
+#: .\models.py:85
+msgid "service_report"
+msgstr "گزارش سرویس"
+
+#: .\models.py:86
+msgid "service_price"
+msgstr "هزینه سرویس"
+
+#: .\models.py:89
+msgid "Service"
+msgstr " سرویس ها "
+
+#: .\models.py:90
+msgid "Services"
+msgstr " سرویس ها "
+
+#~ msgid "City"
+#~ msgstr " اطلاعات بیشتر "
+
+#~ msgid "customer_company_place"
+#~ msgstr "محل شرکت مشتری"
+
+#~ msgid "This it the main page of support application"
+#~ msgstr "این صفحه اول برنامه پشتیبانی است"

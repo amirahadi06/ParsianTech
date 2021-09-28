@@ -1,0 +1,22 @@
+{% extends 'support/base.html' %}
+
+{% block content %}
+
+<div class="card" style="padding: 30px">
+  <h5 class="card-header">{{ part }}</h5>
+  <div class="card-body">
+    <p class="card-text">
+
+          <strong>مشخصات تامین کننده</strong>
+          <li>نام تامین کننده: {{ part.part_supplier_name }} </li>
+          <li>شماره تلفن تامین کننده: {{ part.part_supplier_phone }} </li>
+          <li> آدرس تامین کننده: {{ supplier_address }} </li>
+          <strong>توضیحات</strong>
+          <li> {{ part.part_description }} </li>
+
+    </p>
+    <a href="{% url 'part-list' %}" class="btn btn-secondary">بازگشت به لیست</a>
+  </div>
+</div>
+
+{% endblock %}

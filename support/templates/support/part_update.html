@@ -1,0 +1,15 @@
+{% extends 'support/base.html' %}
+
+{% block content %}
+
+<center><br>
+<h1>بروزرسانی قطعه</h1>
+</center><br>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <br>
+    <input type="submit" value="بروزرسانی" class="btn btn-secondary">
+</form>
+{% endblock %}

@@ -1,0 +1,51 @@
+/* make the size calculations better, always add*/
+* {
+  box-sizing: border-box;
+}
+
+#header{
+    background-color: yellow;
+    background-image:url('../images/img_index.jpg');
+    background-repeat: no-repeat;
+    background-position:center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  font-size: 15px;
+}
+
+.container {
+ /*
+  background-image: url('../images/img_index.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+     width: 100%;
+    height: auto;*/
+/*  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2px 16px;*/
+}
+
+/*.container img {vertical-align: middle;}*/
+
+.content-header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+/*  width: 100%; */
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  padding: 20px;
+  z-index:1;
+}
+
+.content-body {
+ /* position: absolute;
+  top: 150px;
+  width: 100%;*/
+  padding: 20px;
+}
