@@ -1,6 +1,10 @@
-{% extends 'support/base.html' %}
+{% extends 'mainapp/base.html' %}
 
 {% block content %}
+
+<!-- place navbar here -->
+{% include './navbar.html' %}
+<!-- place body content here -->
 
 <div class="card" style="padding: 30px">
   <h5 class="card-header">{{ product }}</h5>
@@ -8,8 +12,8 @@
     <p class="card-text">
 
           <strong>مشخصات محصول</strong>
-          <li>{{ product.product_name }} </li>
-          <li>{{ product.product_model }} </li>
+          <li>نام محصول : {{ product.product_name }} </li>
+          <li>مدل محصول : {{ product.product_model }} </li>
 
 
     </p>

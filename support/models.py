@@ -42,7 +42,9 @@ class PartPack(models.Model):
     part_name = models.ForeignKey(Part, on_delete=models.CASCADE)
     product_name = models.ForeignKey(Product, on_delete=models.CASCADE)
     part_quantity = models.IntegerField(default=1, blank=True)
+    part_price = models.IntegerField(default=0, blank=True)
     part_repair_cost = models.IntegerField(default=0, blank=True)
+    part_repair_customer_site = models.BooleanField(default=True, blank=True)
 
     class Meta:
         verbose_name = _('Part Pack')

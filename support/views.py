@@ -1,15 +1,8 @@
-from django.views import generic
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.db.models import Q
 from .forms import PartForm, ProductForm, PartPackForm
 from .models import Part, Product, PartPack
-from datetime import datetime
-
-
-class IndexView(generic.ListView):
-    template_name = 'support/index.html'
-    queryset = ''
 
 
 def part_delete(request, part_id):
@@ -59,7 +52,7 @@ def part_add(request):
         form = PartForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/parts/add?submitted=True')
+            return HttpResponseRedirect('?submitted=True')
     else:
         form = PartForm
         if 'submitted' in request.GET:
@@ -129,7 +122,7 @@ def product_add(request):
         form = ProductForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/products/add?submitted=True')
+            return HttpResponseRedirect('?submitted=True')
     else:
         form = ProductForm
         if 'submitted' in request.GET:

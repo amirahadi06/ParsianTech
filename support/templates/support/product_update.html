@@ -1,6 +1,10 @@
-{% extends 'support/base.html' %}
+{% extends 'mainapp/base.html' %}
 
 {% block content %}
+
+<!-- place navbar here -->
+{% include './navbar.html' %}
+<!-- place body content here -->
 
 <center><br>
     <h2>بروزرسانی محصول</h2>
@@ -31,7 +35,9 @@
             <tr>
                 <th scope="col">نام قطعه</th>
                 <th scope="col">تعداد بکار رفته در محصول</th>
-                <th scope="col">هزینه تعویض</th>
+                <th scope="col">قیمت فروش قطعه(تومان)</th>
+                <th scope="col">دستمزد تعویض(تومان)</th>
+                <th scope="col">تعویض در محل مشتری</th>
                 <th scope="col"></th>
             </tr>
             </thead>
@@ -41,11 +47,21 @@
                 <td>
                     <p>{{part.part_name}}</p>
                 </td>
-                <td>
+                <td align="center">
                     <p>{{part.part_quantity}}</p>
                 </td>
-                <td>
+                <td align="center">
+                    <p>{{part.part_price}}</p>
+                </td align="center">
+                <td align="center">
                     <p>{{part.part_repair_cost}}</p>
+                </td>
+                <td align="center">
+                        {% if part.part_repair_customer_site%}
+                            <p>دارد</p>
+                        {% else %}
+                            <p>ندارد</p>
+                        {% endif %}
                 </td>
                 <td align="left">
                     <a href="{% url 'partpack-delete' part.id %}" class="btn btn-outline-danger btn-sm"> حذف </a>

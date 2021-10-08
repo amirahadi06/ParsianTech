@@ -1,6 +1,10 @@
-{% extends 'support/base.html' %}
+{% extends 'mainapp/base.html' %}
 
 {% block content %}
+
+<!-- place navbar here -->
+{% include './navbar.html' %}
+<!-- place body content here -->
 
     <center>
         <br><br>
@@ -8,7 +12,7 @@
 
         {% if submitted == True %}
         <p>محصول تعریف شده با موفقیت ثبت گردید</p>
-        <a href="/products/add/" >بازگشت</a>
+        <a href="{% url 'product-add' %}" >بازگشت</a>
 
         {% else %}
 
