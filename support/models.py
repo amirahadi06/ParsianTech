@@ -18,9 +18,17 @@ class Part(models.Model):
 
 
 class Product(models.Model):
+
+    product_models = (
+        ('BASIC', 'BASIC'),
+        ('ECO', 'ECONOMY'),
+        ('PRO', 'PROFESSIONAL'),
+        ('FULL', 'FULL'),
+    )
+
     product_name = models.CharField(verbose_name=_('product name'), max_length=200)
-    product_model = models.CharField(verbose_name=_('Product model'), max_length=200)
-    product_part = models.ManyToManyField(Part, through='PartPack')
+    product_model = models.CharField(verbose_name=_('Product model'), max_length=200, choices=product_models, default='eco')
+    product_part = models.ManyToManyField(Part, through='PartPack', blank=True)
 
     class Meta:
         verbose_name = _('product')
@@ -33,8 +41,8 @@ class Product(models.Model):
 class PartPack(models.Model):
     part_name = models.ForeignKey(Part, on_delete=models.CASCADE)
     product_name = models.ForeignKey(Product, on_delete=models.CASCADE)
-    part_quantity = models.IntegerField(default=1)
-    part_repair_cost = models.IntegerField()
+    part_quantity = models.IntegerField(default=1, blank=True)
+    part_repair_cost = models.IntegerField(default=0, blank=True)
 
     class Meta:
         verbose_name = _('Part Pack')

@@ -1,0 +1,43 @@
+{% extends 'support/base.html' %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<center>
+<h2>لیست محصولات</h2>
+
+</center>
+<br>
+
+      <form class="d-flex" style="padding: 30px" action="" method=POST>
+          {% csrf_token %}
+        <input class="form-control" type="search" value="{{ searched_item }}" placeholder="جستجو در محصولات..." name="searched_item">
+        <button class="btn btn-secondary" type="submit">جستجو</button>
+      </form>
+
+<br>
+
+<table class="table table-striped table-hover table-responsive">
+    <thead>
+    <tr>
+        <th scope="col">نام محصول</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+{% for product in products_list %}
+   <tr>
+       <td>
+           <a href="{% url 'product-show' product.id %}"> {{ product }} </a>
+       </td>
+       <td align="left">
+           <a href="{% url 'product-update' product.id %}" class="btn btn-outline-success btn-sm"> بروزرسانی </a>
+           <a href="{% url 'product-delete' product.id %}" class="btn btn-outline-danger btn-sm"> حذف </a>
+       </td>
+
+   </tr>
+{% endfor %}
+    </tbody>
+</table>
+{% endblock %}

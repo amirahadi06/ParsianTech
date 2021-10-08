@@ -1,0 +1,104 @@
+{% extends 'support/base.html' %}
+
+{% block content %}
+
+<center><br>
+    <h2>بروزرسانی محصول</h2>
+    <br>
+    <div class="container">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ product_data_form.as_p }}
+            <br>
+            <input type="submit" name="data_sub" value="بروزرسانی مشخصات محصول" class="btn btn-secondary">
+        </form>
+    </div>
+
+    <div class="container">
+        <br>
+        <h2>لیست قطعات به کار رفته در محصول</h2>
+        <br>
+
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-primary col-auto" data-toggle="modal" data-target="#myModal">افزودن قطعه به
+            محصول
+        </button>
+        <br>
+        <br>
+        <table class="table table-secondary table-striped table-hover table-responsive table-sm table caption-top">
+            <caption>تعداد قطعات ثبت شده : {{ parts_count }}</caption>
+            <thead class="table-dark">
+            <tr>
+                <th scope="col">نام قطعه</th>
+                <th scope="col">تعداد بکار رفته در محصول</th>
+                <th scope="col">هزینه تعویض</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            {% for part in product_parts %}
+
+            <tr>
+                <td>
+                    <p>{{part.part_name}}</p>
+                </td>
+                <td>
+                    <p>{{part.part_quantity}}</p>
+                </td>
+                <td>
+                    <p>{{part.part_repair_cost}}</p>
+                </td>
+                <td align="left">
+                    <a href="{% url 'partpack-delete' part.id %}" class="btn btn-outline-danger btn-sm"> حذف </a>
+                </td>
+
+            </tr>
+
+            {% endfor %}
+        </table>
+
+
+        <br><br>
+        <div class="container">
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <!--          <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                            <h4 class="modal-title">فرم افزودن قطعه به محصول</h4>
+                        </div>
+
+                        <div class="modal-body">
+
+                            <center>
+                                <br>
+                                <h2>{{product_name}}</h2>
+
+                                <form action="" method="POST" style="padding: 40px">
+                                    {% csrf_token %}
+                                    {{product_partpack_form.as_p}}
+                                    <div class="modal-footer">
+                                        <input type="submit" name="part_sub" value="ثبت قطعه" class="btn btn-success">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">بستن</button>
+                                    </div>
+                                </form>
+
+                            </center>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+</div>
+</center>
+
+{% endblock %}

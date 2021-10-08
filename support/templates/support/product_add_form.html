@@ -4,18 +4,18 @@
 
     <center>
         <br><br>
-        <h2 style="padding: 10px">فرم افزودن قطعه</h1>
+        <h1 style="padding: 10px">فرم افزودن محصول</h1>
 
         {% if submitted == True %}
-        <p>قطعه تعریف شده با موفقیت ثبت گردید</p>
-        <a href="/parts/add/" >بازگشت</a>
+        <p>محصول تعریف شده با موفقیت ثبت گردید</p>
+        <a href="/products/add/" >بازگشت</a>
 
         {% else %}
 
         <form action="" method="POST" style="padding: 100px">
             {% csrf_token %}
             {{form.as_p}}
-            <input type="submit" value="ثبت قطعه" class="btn btn-success">
+            <input type="submit" value="ثبت محصول" class="btn btn-success">
         </form>
 
         {% endif %}
