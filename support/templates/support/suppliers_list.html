@@ -1,0 +1,108 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+
+<!-- place navbar here -->
+{% include './navbar.html' %}
+<!-- place body content here -->
+
+<br><br>
+<div class="container">
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <div class="modal-header">
+<!--          <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+          <h4 class="modal-title" style="text-align: center;">فرم افزودن تامین کننده</h4>
+        </div>
+
+        <div class="modal-body">
+
+     <center>
+
+        <form action="" method="POST" style="padding: 100px">
+            {% csrf_token %}
+            {{form.as_p}}
+            <div class="modal-footer">
+                <input type="submit" value="ثبت تامین کننده" class="btn btn-success">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">بستن</button>
+            </div>
+        </form>
+
+    </center>
+        </div>
+
+        </div>
+
+    </div>
+  </div>
+
+</div>
+
+<br>
+<center>
+<h2>لیست تامین کنندگان</h2>
+
+
+<!--/////////////////////////////    -->
+</center>
+<br>
+
+      <form class="d-flex" style="padding: 30px" action="" method=POST>
+          {% csrf_token %}
+        <input class="form-control" type="search" value="{{ searched_item }}" placeholder="جستجو در تامین کنندگان..." name="searched_item">
+        <button class="btn btn-secondary" type="submit">جستجو</button>
+          <div class="col-auto">
+              <!-- Trigger the modal with a button -->
+              <button type="button" class="btn btn-primary col-auto" data-toggle="modal" data-target="#myModal">افزودن تامین کننده</button>
+          </div>
+      </form>
+
+<br>
+<!--//////////////////////////////-->
+
+
+<table class="table table-secondary table-striped table-hover table-responsive table-sm table caption-top">
+    <caption>تعداد قطعات ثبت شده : {{ suppliers_list.count }}</caption>
+    <thead class="table-dark">
+    <tr>
+        <th scope="col"> نام تامین کننده </th>
+        <th scope="col"> شماره تلفن </th>
+        <th scope="col"> آدرس </th>
+        <th scope="col"> توضیحات </th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+{% for supplier in suppliers_list %}
+   <tr>
+       <td>
+           <a href="{% url 'supplier-show' supplier.id %}"> {{ supplier }} </a>
+       </td>
+       <td>
+          {{ supplier.supplier_phone }}
+       </td>
+       <td>
+           {{ supplier.supplier_address }}
+       </td>
+       <td>
+           {{ supplier.supplier_description }}
+       </td>
+       <td align="left">
+           <a href="{% url 'supplier-update' supplier.id %}" class="btn btn-outline-success btn-sm"> بروزرسانی </a>
+           <a href="{% url 'supplier-delete' supplier.id %}" class="btn btn-outline-danger btn-sm"> حذف </a>
+       </td>
+
+   </tr>
+{% endfor %}
+    </tbody>
+
+</table>
+<br>
+
+{% endblock %}

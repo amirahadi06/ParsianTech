@@ -1,8 +1,49 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.db.models import Q
-from .forms import PartForm, ProductForm, PartPackForm
-from .models import Part, Product, PartPack
+from .forms import PartForm, ProductForm, PartPackForm, SupplierForm
+from .models import Part, Product, PartPack, Supplier
+
+
+def supplier_delete(request, supplier_id):
+    supplier = Supplier.objects.get(pk=supplier_id)
+    supplier.delete()
+    return redirect('supplier-list')
+
+
+def supplier_update(request, supplier_id):
+    supplier = Supplier.objects.get(pk=supplier_id)
+    form = SupplierForm(request.POST or None, instance=supplier)
+    if form.is_valid():
+        form.save()
+        return redirect('supplier-list')
+    return render(request, 'support/supplier_update.html', {'form': form})
+
+
+def supplier_show(request, supplier_id):
+    supplier = Supplier.objects.get(pk=supplier_id)
+    return render(request, 'support/supplier_show.html', {'supplier': supplier})
+
+
+def supplier_list(request):
+    form = SupplierForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('supplier-list')
+
+    if request.method == 'POST':
+        searched_item = request.POST['searched_item']
+        suppliers_list = Supplier.objects.filter(
+            Q(supplier_name__contains=searched_item) |
+            Q(supplier_address__contains=searched_item) |
+            Q(supplier_description__contains=searched_item)
+            ).order_by('supplier_name')
+    else:
+        suppliers_list = Supplier.objects.all().order_by('supplier_name')
+        searched_item = ''
+
+    return render(request, 'support/suppliers_list.html',
+                  {'suppliers_list': suppliers_list, 'searched_item': searched_item, 'form': form})
 
 
 def part_delete(request, part_id):
@@ -34,7 +75,9 @@ def part_list(request):
     if request.method == 'POST':
         searched_item = request.POST['searched_item']
         parts_list = Part.objects.filter(
-            Q(part_name__contains=searched_item) | Q(part_supplier_name__contains=searched_item)).order_by('part_name')
+            Q(part_name__contains=searched_item) |
+            Q(part_description__contains=searched_item)
+            ).order_by('part_name')
     else:
         parts_list = Part.objects.all().order_by('part_name')
         searched_item = ''

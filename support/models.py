@@ -2,11 +2,24 @@ from django.db import models
 from django.utils.translation import gettext as _
 
 
+class Supplier(models.Model):
+    supplier_name = models.CharField(verbose_name=_('Part Supplier Name'), max_length=100)
+    supplier_phone = models.CharField(verbose_name=_('Part Supplier Phone'), max_length=20, blank=True)
+    supplier_address = models.CharField(verbose_name=_('Part Supplier Address'), max_length=400, blank=True)
+    supplier_description = models.TextField(verbose_name=_('Part Description'), max_length=1000, blank=True)
+
+    class Meta:
+        verbose_name = _('Part')
+        verbose_name_plural = _('Parts')
+
+    def __str__(self):
+        return self.supplier_name
+
+
 class Part(models.Model):
     part_name = models.CharField(verbose_name=_('Part Name'), max_length=100)
-    part_supplier_name = models.CharField(verbose_name=_('Part Supplier Name'), max_length=100, blank=True)
-    part_supplier_phone = models.CharField(verbose_name=_('Part Supplier Phone'), max_length=20, blank=True)
-    part_supplier_address = models.CharField(verbose_name=_('Part Supplier Address'), max_length=400, blank=True)
+    part_supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE, blank=True, null=True)
+    part_buy_price = models.IntegerField(verbose_name=_('Part Buy Price'), blank=True, default=0 )
     part_description = models.TextField(verbose_name=_('Part Description'), max_length=1000, blank=True)
 
     class Meta:

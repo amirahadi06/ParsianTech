@@ -16,8 +16,8 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="{% url 'part-list' %}">لیست قطعات</a></li>
                         <li><a class="dropdown-item" href="{% url 'part-add' %}">ثبت قطعه</a></li>
-                        <!--            <li><hr class="dropdown-divider"></li>-->
-                        <!--            <li><a class="dropdown-item" href="/admin">تنظیمات</a></li>-->
+                            <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'supplier-list' %}">لیست تامین کنندگان</a></li>
                     </ul>
                 </li>
 
@@ -30,8 +30,6 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="{% url 'product-list' %}">لیست محصولات</a></li>
                         <li><a class="dropdown-item" href="{% url 'product-add' %}">ثبت محصول</a></li>
-                        <!--            <li><hr class="dropdown-divider"></li>-->
-                        <!--            <li><a class="dropdown-item" href="/admin">تنظیمات</a></li>-->
                     </ul>
                 </li>
                 {% if user.is_authenticated %}

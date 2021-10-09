@@ -1,0 +1,26 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+
+<!-- place navbar here -->
+{% include './navbar.html' %}
+<!-- place body content here -->
+
+<div class="card" style="padding: 30px">
+  <h5 class="card-header">{{ supplier }}</h5>
+  <div class="card-body">
+    <p class="card-text">
+
+          <strong>مشخصات تامین کننده</strong>
+          <li>نام تامین کننده: {{ supplier.supplier_name }} </li>
+          <li>شماره تلفن تامین کننده: {{ supplier.supplier_phone }} </li>
+          <li> آدرس تامین کننده: {{ supplier.supplier_address }} </li>
+          <strong>توضیحات</strong>
+          <li> {{ supplier.supplier_description }} </li>
+
+    </p>
+    <a href="{% url 'supplier-list' %}" class="btn btn-secondary">بازگشت به لیست</a>
+  </div>
+</div>
+
+{% endblock %}

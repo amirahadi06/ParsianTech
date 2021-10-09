@@ -12,11 +12,20 @@
     <p class="card-text">
 
           <strong>مشخصات تامین کننده</strong>
-          <li>نام تامین کننده: {{ part.part_supplier_name }} </li>
-          <li>شماره تلفن تامین کننده: {{ part.part_supplier_phone }} </li>
-          <li> آدرس تامین کننده: {{ supplier_address }} </li>
-          <strong>توضیحات</strong>
-          <li> {{ part.part_description }} </li>
+            {% if part.part_supplier %}
+              <li>نام تامین کننده: {{ part.part_supplier.supplier_name }} </li>
+              <li>شماره تلفن تامین کننده: {{ part.part_supplier.supplier_phone }} </li>
+              <li> آدرس تامین کننده: {{ part.part_supplier.supplier_address }} </li>
+              <li> توضیحات تامین کننده: {{ part.part_supplier.supplier_description }} </li>
+            {% else %}
+              <li>نام تامین کننده: متفرقه </li>
+              <li>شماره تلفن تامین کننده: ندارد </li>
+              <li> آدرس تامین کننده: ندارد </li>
+              <li> توضیحات تامین کننده:  </li>
+            {% endif %}
+          <strong>مشخصات قطعه</strong>
+          <li> توضیحات قطعه: {{ part.part_description }} </li>
+          <li> قیمت خرید: {{ part.part_buy_price }} </li>
 
     </p>
     <a href="{% url 'part-list' %}" class="btn btn-secondary">بازگشت به لیست</a>
